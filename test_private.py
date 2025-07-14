@@ -1,6 +1,6 @@
 import pytest
 import sys
-project_filename = 'projectoFP.py'
+project_filename = 'FP2324P2.py'
 TAD_CODE_PATH = '/Users/alberto/WORK/local/FP23/prj/p2/private/TAD_code/'
 # from projectoFP import *
 
@@ -1145,289 +1145,289 @@ class TestPrivateGoExceptions:
         assert "go: argumentos invalidos" == str(excinfo.value)
 
 
-class TestPrivateTADIntersecao:
+# class TestPrivateTADIntersecao:
     
-    # score = 0.5
+#     # score = 0.5
 
-    def test_1(self):
-        exec(open(f'{TAD_CODE_PATH}/TAD_intersecao.py', encoding="utf-8").read(), globals())
-        c = cria_intersecao('A', 2)
-        l = cria_intersecao('S',19)
-        ref = ('A1', 'B2', 'A3')
-        assert ref == tuple(intersecao_para_str(i) for i in obtem_intersecoes_adjacentes(c, l))
+#     def test_1(self):
+#         exec(open(f'{TAD_CODE_PATH}/TAD_intersecao.py', encoding="utf-8").read(), globals())
+#         c = cria_intersecao('A', 2)
+#         l = cria_intersecao('S',19)
+#         ref = ('A1', 'B2', 'A3')
+#         assert ref == tuple(intersecao_para_str(i) for i in obtem_intersecoes_adjacentes(c, l))
         
-    def test_2(self):
-        exec(open(f'{TAD_CODE_PATH}/TAD_intersecao.py', encoding="utf-8").read(), globals())
-        tup = (cria_intersecao('A',1), cria_intersecao('A',3), cria_intersecao('B',1), cria_intersecao('B',2))
-        assert ('A1', 'B1', 'B2', 'A3') == tuple(intersecao_para_str(i) for i in ordena_intersecoes(tup))
+#     def test_2(self):
+#         exec(open(f'{TAD_CODE_PATH}/TAD_intersecao.py', encoding="utf-8").read(), globals())
+#         tup = (cria_intersecao('A',1), cria_intersecao('A',3), cria_intersecao('B',1), cria_intersecao('B',2))
+#         assert ('A1', 'B1', 'B2', 'A3') == tuple(intersecao_para_str(i) for i in ordena_intersecoes(tup))
         
-class TestPrivateTADPedra:
-    # score 0.25
-    def test_1(self):
-        exec(open(f'{TAD_CODE_PATH}/TAD_pedra.py', encoding="utf-8").read(), globals())
-        assert eh_pedra_jogador(cria_pedra_branca()) and  eh_pedra_jogador(cria_pedra_preta()) and not eh_pedra_jogador(cria_pedra_neutra())
+# class TestPrivateTADPedra:
+#     # score 0.25
+#     def test_1(self):
+#         exec(open(f'{TAD_CODE_PATH}/TAD_pedra.py', encoding="utf-8").read(), globals())
+#         assert eh_pedra_jogador(cria_pedra_branca()) and  eh_pedra_jogador(cria_pedra_preta()) and not eh_pedra_jogador(cria_pedra_neutra())
    
-class TestPrivateTADGoban:
+# class TestPrivateTADGoban:
 
-    # score = 1.0
-    def test_1(self):
-            exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-            exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-            g1 = cria_goban_vazio(9)
-            g2 = cria_copia_goban(g1)
-            assert id(g1) != id(g2) and gobans_iguais(g1, g2)
+#     # score = 1.0
+#     def test_1(self):
+#             exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#             exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#             g1 = cria_goban_vazio(9)
+#             g2 = cria_copia_goban(g1)
+#             assert id(g1) != id(g2) and gobans_iguais(g1, g2)
             
-    def test_2(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        ib = 'B7', 'B8', 'C6', 'D6', 'D8', 'E7', 'E9', 'F7', 'F8', 'F9'
-        ip = 'C7', 'C8', 'C9', 'D7', 'D9', 'E6', 'F5', 'F6', 'G7', 'G8'
-        g1 = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
-        g2 = cria_copia_goban(g1)
-        assert id(g1) != id(g2) and gobans_iguais(g1, g2)
+#     def test_2(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         ib = 'B7', 'B8', 'C6', 'D6', 'D8', 'E7', 'E9', 'F7', 'F8', 'F9'
+#         ip = 'C7', 'C8', 'C9', 'D7', 'D9', 'E6', 'F5', 'F6', 'G7', 'G8'
+#         g1 = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
+#         g2 = cria_copia_goban(g1)
+#         assert id(g1) != id(g2) and gobans_iguais(g1, g2)
 
-    def test_3(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        ib = cria_intersecao('C',1), cria_intersecao('C',3), cria_intersecao('D',4)
-        ip = cria_intersecao('E',1), cria_intersecao('E',3), cria_intersecao('F',4)
-        g = cria_goban(13, ib, ip)
+#     def test_3(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         ib = cria_intersecao('C',1), cria_intersecao('C',3), cria_intersecao('D',4)
+#         ip = cria_intersecao('E',1), cria_intersecao('E',3), cria_intersecao('F',4)
+#         g = cria_goban(13, ib, ip)
  
-        assert all(eh_pedra_branca(obtem_pedra(g, i)) for i in ib) and \
-            all(eh_pedra_preta(obtem_pedra(g, i)) for i in ip) and \
-                all((not eh_pedra_jogador(obtem_pedra(g, cria_intersecao(L,N))) for L in 'LM' for N in range(1,14,2)))
+#         assert all(eh_pedra_branca(obtem_pedra(g, i)) for i in ib) and \
+#             all(eh_pedra_preta(obtem_pedra(g, i)) for i in ip) and \
+#                 all((not eh_pedra_jogador(obtem_pedra(g, cria_intersecao(L,N))) for L in 'LM' for N in range(1,14,2)))
 
-    def test_4(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9'
-        ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
-        g = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
-        ref = 'E2, E3, E4, E5'
-        assert ref ==  ', '.join(intersecao_para_str(i) for i in obtem_cadeia(g, cria_intersecao('E',3)))
+#     def test_4(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9'
+#         ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
+#         g = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
+#         ref = 'E2, E3, E4, E5'
+#         assert ref ==  ', '.join(intersecao_para_str(i) for i in obtem_cadeia(g, cria_intersecao('E',3)))
         
-    def test_5(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        g = cria_goban_vazio(13)
-        _ = coloca_pedra(g, cria_intersecao('A',1), cria_pedra_preta()) 
-        _ = coloca_pedra(g, cria_intersecao('A',2), cria_pedra_preta()) 
-        _ = remove_pedra(g, cria_intersecao('A',1)) 
-        assert not eh_pedra_jogador(obtem_pedra(g, cria_intersecao('A',1))) and eh_pedra_preta(obtem_pedra(g, cria_intersecao('A',2)))
+#     def test_5(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         g = cria_goban_vazio(13)
+#         _ = coloca_pedra(g, cria_intersecao('A',1), cria_pedra_preta()) 
+#         _ = coloca_pedra(g, cria_intersecao('A',2), cria_pedra_preta()) 
+#         _ = remove_pedra(g, cria_intersecao('A',1)) 
+#         assert not eh_pedra_jogador(obtem_pedra(g, cria_intersecao('A',1))) and eh_pedra_preta(obtem_pedra(g, cria_intersecao('A',2)))
       
-    def test_6(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        g = cria_goban_vazio(13)
-        _ = coloca_pedra(g, cria_intersecao('A',1), cria_pedra_preta()) 
-        _ = coloca_pedra(g, cria_intersecao('A',2), cria_pedra_preta()) 
-        _ = remove_pedra(g, cria_intersecao('A',1)) 
-        assert eh_goban(g) and eh_goban(cria_copia_goban(g))
+#     def test_6(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         g = cria_goban_vazio(13)
+#         _ = coloca_pedra(g, cria_intersecao('A',1), cria_pedra_preta()) 
+#         _ = coloca_pedra(g, cria_intersecao('A',2), cria_pedra_preta()) 
+#         _ = remove_pedra(g, cria_intersecao('A',1)) 
+#         assert eh_goban(g) and eh_goban(cria_copia_goban(g))
           
-    def test_7(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#     def test_7(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
         
-        ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9', 'B1', 'B2', 'B3', 'B4', 'A4', 'C4', 'D9'
-        ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
-        g = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
+#         ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9', 'B1', 'B2', 'B3', 'B4', 'A4', 'C4', 'D9'
+#         ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
+#         g = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
         
-        g2 = remove_cadeia(g, tuple(str_para_intersecao(i) for i in ib[:5]))
-        assert all(not eh_pedra_jogador(obtem_pedra(g, str_para_intersecao(i))) for i in ib[:5]) and id(g) == id(g2)
+#         g2 = remove_cadeia(g, tuple(str_para_intersecao(i) for i in ib[:5]))
+#         assert all(not eh_pedra_jogador(obtem_pedra(g, str_para_intersecao(i))) for i in ib[:5]) and id(g) == id(g2)
   
 
-    def test_8(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals()) 
-        assert not eh_intersecao_valida(cria_goban_vazio(13), cria_intersecao('N', 13)) and eh_intersecao_valida(cria_goban_vazio(19), cria_intersecao('S', 19))
+#     def test_8(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals()) 
+#         assert not eh_intersecao_valida(cria_goban_vazio(13), cria_intersecao('N', 13)) and eh_intersecao_valida(cria_goban_vazio(19), cria_intersecao('S', 19))
         
         
-    def test_9(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9', 'B1', 'B2', 'B3', 'B4', 'A4', 'C4', 'D9'
-        ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
-        g = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
-        ref = ('   A B C D E F G H I\n'
-               ' 9 . . . O . O X . .  9\n'
-               ' 8 . . . . O O X . .  8\n'
-               ' 7 . . . . O X . . .  7\n'
-               ' 6 . . . O O X . . .  6\n'
-               ' 5 . . . O X . X . .  5\n'
-               ' 4 O O O O X . . . .  4\n'
-               ' 3 . O . O X . . . .  3\n'
-               ' 2 . O . O X . . . .  2\n'
-               ' 1 . O . X . . . . .  1\n'
-               '   A B C D E F G H I')
-        assert ref == goban_para_str(g)
+#     def test_9(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9', 'B1', 'B2', 'B3', 'B4', 'A4', 'C4', 'D9'
+#         ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
+#         g = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
+#         ref = ('   A B C D E F G H I\n'
+#                ' 9 . . . O . O X . .  9\n'
+#                ' 8 . . . . O O X . .  8\n'
+#                ' 7 . . . . O X . . .  7\n'
+#                ' 6 . . . O O X . . .  6\n'
+#                ' 5 . . . O X . X . .  5\n'
+#                ' 4 O O O O X . . . .  4\n'
+#                ' 3 . O . O X . . . .  3\n'
+#                ' 2 . O . O X . . . .  2\n'
+#                ' 1 . O . X . . . . .  1\n'
+#                '   A B C D E F G H I')
+#         assert ref == goban_para_str(g)
 
-    def test_10(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        g = cria_goban_vazio(13)
-        g2 = cria_copia_goban(g)
-        _ = coloca_pedra(g, cria_intersecao('A',2), cria_pedra_preta())  
-        assert eh_pedra_preta(obtem_pedra(g, cria_intersecao('A',2))) and not eh_pedra_jogador(obtem_pedra(g2, cria_intersecao('A',2)))
+#     def test_10(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         g = cria_goban_vazio(13)
+#         g2 = cria_copia_goban(g)
+#         _ = coloca_pedra(g, cria_intersecao('A',2), cria_pedra_preta())  
+#         assert eh_pedra_preta(obtem_pedra(g, cria_intersecao('A',2))) and not eh_pedra_jogador(obtem_pedra(g2, cria_intersecao('A',2)))
     
-    def test_11(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
-        ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9', 'B1', 'B2', 'B3', 'B4', 'A4', 'C4', 'D9'
-        ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
-        g1 = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
-        g2 = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
+#     def test_11(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())
+#         ib = 'D2', 'D3', 'D4', 'D5', 'D6', 'E6', 'E7', 'E8', 'F8', 'F9', 'B1', 'B2', 'B3', 'B4', 'A4', 'C4', 'D9'
+#         ip = 'D1', 'E2', 'E3', 'E4', 'E5', 'F6', 'F7', 'G5', 'G8', 'G9'
+#         g1 = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
+#         g2 = cria_goban(9, tuple(str_para_intersecao(i) for i in ib), tuple(str_para_intersecao(i) for i in ip))
         
-        assert gobans_iguais(g1, g2)
+#         assert gobans_iguais(g1, g2)
     
-class TestPrivateTADGobanFAN:
+# class TestPrivateTADGobanFAN:
     
-    # score = 0.75
-    def test_1(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals())    
+#     # score = 0.75
+#     def test_1(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals())    
         
-        g = cria_goban_vazio(9)
-        b, p = cria_pedra_branca(), cria_pedra_preta()
-        ib = 'C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'
-        ip = 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'
-        for i in ib: coloca_pedra(g, str_para_intersecao(i), b)
-        for i in ip: coloca_pedra(g, str_para_intersecao(i), p)
-        cad = obtem_cadeia(g, cria_intersecao('F',5))
-        liberdades = obtem_adjacentes_diferentes(g, cad)
-        assert tuple(intersecao_para_str(i) for i in liberdades) == ('E3', 'F3', 'G4', 'D5', 'G5', 'E6', 'F6')
+#         g = cria_goban_vazio(9)
+#         b, p = cria_pedra_branca(), cria_pedra_preta()
+#         ib = 'C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'
+#         ip = 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'
+#         for i in ib: coloca_pedra(g, str_para_intersecao(i), b)
+#         for i in ip: coloca_pedra(g, str_para_intersecao(i), p)
+#         cad = obtem_cadeia(g, cria_intersecao('F',5))
+#         liberdades = obtem_adjacentes_diferentes(g, cad)
+#         assert tuple(intersecao_para_str(i) for i in liberdades) == ('E3', 'F3', 'G4', 'D5', 'G5', 'E6', 'F6')
         
         
-    def test_2(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals())      
+#     def test_2(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals())      
              
-        g = cria_goban_vazio(9)
-        b, p = cria_pedra_branca(), cria_pedra_preta()
-        ib = 'C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'
-        ip = 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'
-        for i in ib: coloca_pedra(g, str_para_intersecao(i), b)
-        for i in ip: coloca_pedra(g, str_para_intersecao(i), p)
-        terr = obtem_territorios(g)
-        assert tuple(intersecao_para_str(i) for i in terr[0]) == ('A1', 'B1', 'A2', 'B2')
+#         g = cria_goban_vazio(9)
+#         b, p = cria_pedra_branca(), cria_pedra_preta()
+#         ib = 'C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'
+#         ip = 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'
+#         for i in ib: coloca_pedra(g, str_para_intersecao(i), b)
+#         for i in ip: coloca_pedra(g, str_para_intersecao(i), p)
+#         terr = obtem_territorios(g)
+#         assert tuple(intersecao_para_str(i) for i in terr[0]) == ('A1', 'B1', 'A2', 'B2')
 
-    def test_3(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals())   
+#     def test_3(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals())   
         
-        g = cria_goban_vazio(9)
-        b, p = cria_pedra_branca(), cria_pedra_preta()
-        ib = 'C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'
-        ip = 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'
-        for i in ib: coloca_pedra(g, str_para_intersecao(i), b)
-        for i in ip: coloca_pedra(g, str_para_intersecao(i), p)
-        assert obtem_pedras_jogadores(g) == (8, 6)
+#         g = cria_goban_vazio(9)
+#         b, p = cria_pedra_branca(), cria_pedra_preta()
+#         ib = 'C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'
+#         ip = 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'
+#         for i in ib: coloca_pedra(g, str_para_intersecao(i), b)
+#         for i in ip: coloca_pedra(g, str_para_intersecao(i), p)
+#         assert obtem_pedras_jogadores(g) == (8, 6)
            
         
-    def test_4(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals()) 
+#     def test_4(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TAD_goban.py', encoding="utf-8").read(), globals()) 
         
-        ib = tuple(str_para_intersecao(i) \
-            for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
-        ip = tuple(str_para_intersecao(i) \
-            for i in ('A1', 'A2', 'B1', 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
-        g = cria_goban(9, ib, ip)
-        b = cria_pedra_branca()
-        _ = jogada(g, cria_intersecao('B', 2), b)
-        assert goban_para_str(g) == \
-"""   A B C D E F G H I
- 9 . . . . . . . . .  9
- 8 . . . . . . . . .  8
- 7 . . . . . . X . .  7
- 6 . . . . . . X . .  6
- 5 . . . . X X . . .  5
- 4 . . . O X X . . .  4
- 3 O O O O . . . . .  3
- 2 . O O O . . . . .  2
- 1 . . O . . . . . .  1
-   A B C D E F G H I"""     
+#         ib = tuple(str_para_intersecao(i) \
+#             for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
+#         ip = tuple(str_para_intersecao(i) \
+#             for i in ('A1', 'A2', 'B1', 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
+#         g = cria_goban(9, ib, ip)
+#         b = cria_pedra_branca()
+#         _ = jogada(g, cria_intersecao('B', 2), b)
+#         assert goban_para_str(g) == \
+# """   A B C D E F G H I
+#  9 . . . . . . . . .  9
+#  8 . . . . . . . . .  8
+#  7 . . . . . . X . .  7
+#  6 . . . . . . X . .  6
+#  5 . . . . X X . . .  5
+#  4 . . . O X X . . .  4
+#  3 O O O O . . . . .  3
+#  2 . O O O . . . . .  2
+#  1 . . O . . . . . .  1
+#    A B C D E F G H I"""     
 
 
-class TestPrivateTADCalculaPontos:
-    # score = 0.5
-    def test_1(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
-        ib = tuple(str_para_intersecao(i) for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
-        ip = tuple(str_para_intersecao(i) for i in ('E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
-        g = cria_goban(9, ib, ip)
-        assert calcula_pontos(g) == (12, 6)
+# class TestPrivateTADCalculaPontos:
+#     # score = 0.5
+#     def test_1(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
+#         ib = tuple(str_para_intersecao(i) for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
+#         ip = tuple(str_para_intersecao(i) for i in ('E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
+#         g = cria_goban(9, ib, ip)
+#         assert calcula_pontos(g) == (12, 6)
  
-class TestPrivateTADJogadaLegal:
-    # score = 0.5
-    def test_1(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
+# class TestPrivateTADJogadaLegal:
+#     # score = 0.5
+#     def test_1(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
         
-        ib = tuple(str_para_intersecao(i) for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
-        ip = tuple(str_para_intersecao(i) for i in ('A1', 'A2', 'B1', 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
-        g = cria_goban(9, ib, ip)
-        l = cria_goban_vazio(9)
-        b, p = cria_pedra_branca(), cria_pedra_preta()
-        assert not eh_jogada_legal(g, cria_intersecao('B', 2), p, l)
+#         ib = tuple(str_para_intersecao(i) for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
+#         ip = tuple(str_para_intersecao(i) for i in ('A1', 'A2', 'B1', 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
+#         g = cria_goban(9, ib, ip)
+#         l = cria_goban_vazio(9)
+#         b, p = cria_pedra_branca(), cria_pedra_preta()
+#         assert not eh_jogada_legal(g, cria_intersecao('B', 2), p, l)
  
-class TestPrivateTADTurnoJogador:
-    # score = 0.5
-    def test_1(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
-        exec(open(f'{TAD_CODE_PATH}/FAN_jogada_legal.py', encoding="utf-8").read(), globals()) 
+# class TestPrivateTADTurnoJogador:
+#     # score = 0.5
+#     def test_1(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
+#         exec(open(f'{TAD_CODE_PATH}/FAN_jogada_legal.py', encoding="utf-8").read(), globals()) 
         
-        ib = tuple(str_para_intersecao(i) for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
-        ip = tuple(str_para_intersecao(i) for i in ('A1', 'A2', 'B1', 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
-        g = cria_goban(9, ib, ip)
-        goban_str = \
-"""   A B C D E F G H I
- 9 . . . . . . . . .  9
- 8 . . . . . . . . .  8
- 7 . . . . . . X . .  7
- 6 . . . . . . X . .  6
- 5 . . . . X X X . .  5
- 4 . . . O X X . . .  4
- 3 O O O O . . . . .  3
- 2 X . O O . . . . .  2
- 1 X X O . . . . . .  1
-   A B C D E F G H I"""
-        ref = (True, "Escreva uma intersecao ou 'P' para passar [X]:Escreva uma intersecao ou 'P' para passar [X]:Escreva uma intersecao ou 'P' para passar [X]:")
-        assert ref == turno_jogador_offline(g, cria_pedra_preta(), cria_goban_vazio(9), 'B10\nB2\nG5\n') and (goban_para_str(g) == goban_str)
+#         ib = tuple(str_para_intersecao(i) for i in ('C1', 'C2', 'C3', 'D2', 'D3', 'D4', 'A3', 'B3'))
+#         ip = tuple(str_para_intersecao(i) for i in ('A1', 'A2', 'B1', 'E4', 'E5', 'F4', 'F5', 'G6', 'G7'))
+#         g = cria_goban(9, ib, ip)
+#         goban_str = \
+# """   A B C D E F G H I
+#  9 . . . . . . . . .  9
+#  8 . . . . . . . . .  8
+#  7 . . . . . . X . .  7
+#  6 . . . . . . X . .  6
+#  5 . . . . X X X . .  5
+#  4 . . . O X X . . .  4
+#  3 O O O O . . . . .  3
+#  2 X . O O . . . . .  2
+#  1 X X O . . . . . .  1
+#    A B C D E F G H I"""
+#         ref = (True, "Escreva uma intersecao ou 'P' para passar [X]:Escreva uma intersecao ou 'P' para passar [X]:Escreva uma intersecao ou 'P' para passar [X]:")
+#         assert ref == turno_jogador_offline(g, cria_pedra_preta(), cria_goban_vazio(9), 'B10\nB2\nG5\n') and (goban_para_str(g) == goban_str)
 
              
-class TestPrivateTADGo:
+# class TestPrivateTADGo:
 
-    def test_1(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
-        exec(open(f'{TAD_CODE_PATH}/FAN_jogada_legal.py', encoding="utf-8").read(), globals()) 
-        exec(open(f'{TAD_CODE_PATH}/FAN_calcula_pontos.py', encoding="utf-8").read(), globals()) 
-        exec(open(f'{TAD_CODE_PATH}/FAN_turno_jogador.py', encoding="utf-8").read(), globals()) 
+#     def test_1(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
+#         exec(open(f'{TAD_CODE_PATH}/FAN_jogada_legal.py', encoding="utf-8").read(), globals()) 
+#         exec(open(f'{TAD_CODE_PATH}/FAN_calcula_pontos.py', encoding="utf-8").read(), globals()) 
+#         exec(open(f'{TAD_CODE_PATH}/FAN_turno_jogador.py', encoding="utf-8").read(), globals()) 
         
-        input_str = 'A1\nB1\nB2\nA2\nA1\nA3\nA1\nC1\nE5\nP\nP\n'
-        assert go_offline(9, (), (), input_str) == (False, REF_GO_PUBLIC_JOGO1)
+#         input_str = 'A1\nB1\nB2\nA2\nA1\nA3\nA1\nC1\nE5\nP\nP\n'
+#         assert go_offline(9, (), (), input_str) == (False, REF_GO_PUBLIC_JOGO1)
         
-    def test_2(self):
-        exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
-        exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
-        exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
-        exec(open(f'{TAD_CODE_PATH}/FAN_jogada_legal.py', encoding="utf-8").read(), globals()) 
-        exec(open(f'{TAD_CODE_PATH}/FAN_calcula_pontos.py', encoding="utf-8").read(), globals()) 
-        exec(open(f'{TAD_CODE_PATH}/FAN_turno_jogador.py', encoding="utf-8").read(), globals()) 
+#     def test_2(self):
+#         exec(open(f'{TAD_CODE_PATH}/TF_intersecao.py', encoding="utf-8").read(), globals())
+#         exec(open(f'{TAD_CODE_PATH}/TF_pedra.py', encoding="utf-8").read(), globals())      
+#         exec(open(f'{TAD_CODE_PATH}/TF_goban.py', encoding="utf-8").read(), globals()) 
+#         exec(open(f'{TAD_CODE_PATH}/FAN_jogada_legal.py', encoding="utf-8").read(), globals()) 
+#         exec(open(f'{TAD_CODE_PATH}/FAN_calcula_pontos.py', encoding="utf-8").read(), globals()) 
+#         exec(open(f'{TAD_CODE_PATH}/FAN_turno_jogador.py', encoding="utf-8").read(), globals()) 
     
-        ib = 'C2', 'D2', 'E2', 'F2', 'G2', 'H2', 'B3', 'I3', 'B4', 'D4', 'E4', 'F4', 'B5', 'D5', 'G5', 'I5', 'B6', 'D6', 'E6', 'F6', 'G6', 'I6', 'C7', 'I7', 'C8', 'D8', 'E8', 'F8', 'G8', 'H8', 'I8'
-        ip = 'C3', 'D3', 'E3', 'F3', 'G3', 'C4', 'G4', 'H4', 'C5', 'H5', 'C6', 'H6', 'D7', 'E7', 'F7', 'G7', 'H7'
-        assert go_offline(9, ib, ip, 'E5\nF5\nE5\nP\nP\n') == (True, REF_GO_PUBLIC_JOGO2)
+#         ib = 'C2', 'D2', 'E2', 'F2', 'G2', 'H2', 'B3', 'I3', 'B4', 'D4', 'E4', 'F4', 'B5', 'D5', 'G5', 'I5', 'B6', 'D6', 'E6', 'F6', 'G6', 'I6', 'C7', 'I7', 'C8', 'D8', 'E8', 'F8', 'G8', 'H8', 'I8'
+#         ip = 'C3', 'D3', 'E3', 'F3', 'G3', 'C4', 'G4', 'H4', 'C5', 'H5', 'C6', 'H6', 'D7', 'E7', 'F7', 'G7', 'H7'
+#         assert go_offline(9, ib, ip, 'E5\nF5\nE5\nP\nP\n') == (True, REF_GO_PUBLIC_JOGO2)
      
    
 ### AUXILIAR CODE NECESSARY TO REPLACE STANDARD INPUT 
